@@ -19,15 +19,13 @@ namespace DataAccessLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasMany(x=>x.BasketPositions).WithOne(x=>x.User).OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<User>().HasMany(x => x.Orders).WithOne(x => x.User).OnDelete(DeleteBehavior.Cascade);
-
             modelBuilder.Entity<Product>().HasMany(x => x.BasketPositions).WithOne(x => x.Product).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Product>().HasMany(x=>x.OrderPositions).WithOne(x=>x.Product).OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<User>().HasMany(x => x.BasketPositions).WithOne(x=>x.User).OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Order>().HasMany(x=>x.Positions).WithOne(x=>x.Order).OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<Order>().HasOne(x=>x.User).WithMany(x=>x.Orders).OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<OrderPosition>().HasOne(x => x.Order).WithMany(x => x.Positions).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Order>().HasOne(x=>x.User).WithMany(x=>x.Orders).OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<User>().Property(x=>x.Type).HasConversion<int>();
         }

@@ -86,9 +86,14 @@ namespace DataAccessLayer.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OrderID");
+
+                    b.HasIndex("ProductID");
 
                     b.ToTable("OrderPositions");
                 });
@@ -101,7 +106,7 @@ namespace DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Iamge")
+                    b.Property<string>("Image")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -175,7 +180,7 @@ namespace DataAccessLayer.Migrations
                     b.HasOne("Model.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -189,7 +194,15 @@ namespace DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Model.Product", "Product")
+                        .WithMany("OrderPositions")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Order");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Model.Order", b =>
@@ -200,6 +213,8 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("Model.Product", b =>
                 {
                     b.Navigation("BasketPositions");
+
+                    b.Navigation("OrderPositions");
                 });
 
             modelBuilder.Entity("Model.User", b =>

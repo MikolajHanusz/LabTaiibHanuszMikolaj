@@ -1092,6 +1092,20 @@
           }
         }
       },
+      "BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "DataAccessLayer": "1.0.0",
+          "Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BLL.dll": {}
+        }
+      },
       "DataAccessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -3161,6 +3175,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "BLL/1.0.0": {
+      "type": "project",
+      "path": "../BLL/BLL.csproj",
+      "msbuildProject": "../BLL/BLL.csproj"
+    },
     "DataAccessLayer/1.0.0": {
       "type": "project",
       "path": "../DataAccessLayer/DataAccessLayer.csproj",
@@ -3174,6 +3193,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "BLL >= 1.0.0",
       "DataAccessLayer >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
@@ -3217,6 +3237,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "C:\\Users\\Student\\Desktop\\TaiibHanusz\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\Student\\Desktop\\TaiibHanusz\\BLL\\BLL.csproj"
+            },
             "C:\\Users\\Student\\Desktop\\TaiibHanusz\\DataAccessLayer\\DataAccessLayer.csproj": {
               "projectPath": "C:\\Users\\Student\\Desktop\\TaiibHanusz\\DataAccessLayer\\DataAccessLayer.csproj"
             }

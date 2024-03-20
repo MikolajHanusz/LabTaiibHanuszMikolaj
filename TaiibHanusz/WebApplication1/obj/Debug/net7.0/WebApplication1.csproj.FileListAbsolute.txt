@@ -72,3 +72,6 @@ C:\Users\Student\Desktop\TaiibHanusz\WebApplication1\obj\Debug\net7.0\refint\Web
 C:\Users\Student\Desktop\TaiibHanusz\WebApplication1\obj\Debug\net7.0\WebApplication1.pdb
 C:\Users\Student\Desktop\TaiibHanusz\WebApplication1\obj\Debug\net7.0\WebApplication1.genruntimeconfig.cache
 C:\Users\Student\Desktop\TaiibHanusz\WebApplication1\obj\Debug\net7.0\ref\WebApplication1.dll
+C:\Users\Student\Desktop\TaiibHanusz\WebApplication1\bin\Debug\net7.0\BLL.dll
+C:\Users\Student\Desktop\TaiibHanusz\WebApplication1\bin\Debug\net7.0\BLL.pdb
+C:\Users\Student\Desktop\TaiibHanusz\WebApplication1\obj\Debug\net7.0\WebApplication1.MvcApplicationPartsAssemblyInfo.cs
