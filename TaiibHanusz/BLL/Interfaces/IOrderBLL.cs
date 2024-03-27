@@ -10,8 +10,8 @@ namespace BLL.Interfaces
     public interface IOrderBLL
     {
         void AddOrder(int userId, OrderRequestDTO order);
-        List<OrderResponseDTO> GetOrderList();
-        List<OrderResponseDTO> GetUserOrderList(int userId);
-        List<OrderPositionResponseDTO> GetOrderPositionList(int orderId);
+        IEnumerable<OrderResponseDTO> GetOrderList();
+        IEnumerable<OrderResponseDTO> GetUserOrderList(int userId);
+        IEnumerable<OrderPositionResponseDTO> GetOrderPositionList(int orderId);
     }
 }

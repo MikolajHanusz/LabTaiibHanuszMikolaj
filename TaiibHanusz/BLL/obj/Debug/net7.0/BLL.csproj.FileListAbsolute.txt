@@ -10,3 +10,8 @@ C:\Users\Student\Desktop\TaiibHanusz\BLL\obj\Debug\net7.0\BLL.dll
 C:\Users\Student\Desktop\TaiibHanusz\BLL\obj\Debug\net7.0\refint\BLL.dll
 C:\Users\Student\Desktop\TaiibHanusz\BLL\obj\Debug\net7.0\BLL.pdb
 C:\Users\Student\Desktop\TaiibHanusz\BLL\obj\Debug\net7.0\ref\BLL.dll
+C:\Users\Student\Desktop\TaiibHanusz\BLL\bin\Debug\net7.0\DataAccessLayer.dll
+C:\Users\Student\Desktop\TaiibHanusz\BLL\bin\Debug\net7.0\Model.dll
+C:\Users\Student\Desktop\TaiibHanusz\BLL\bin\Debug\net7.0\DataAccessLayer.pdb
+C:\Users\Student\Desktop\TaiibHanusz\BLL\bin\Debug\net7.0\Model.pdb
+C:\Users\Student\Desktop\TaiibHanusz\BLL\obj\Debug\net7.0\BLL.csproj.CopyComplete
