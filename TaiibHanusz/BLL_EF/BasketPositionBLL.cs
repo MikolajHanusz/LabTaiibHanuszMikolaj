@@ -32,7 +32,9 @@ namespace BLL_EF
 
         public void ChangeAmount(int basketId, int amount)
         {
-            throw new NotImplementedException();
+            BasketPosition b = (BasketPosition)WebShop.BasketPositions.Select(x => x.Id);
+            b.Amount = amount;
+            WebShop.SaveChanges();
         }
 
         public void DeleteProduct(int basketId)
@@ -44,7 +46,19 @@ namespace BLL_EF
 
         public List<BasketPositionResponseDTO> GetBasket(int userId)
         {
-            throw new NotImplementedException();
+            var basketpositons = WebShop.BasketPositions.Where(x => x.UserId == userId);
+            List<BasketPositionResponseDTO> ret = new List<BasketPositionResponseDTO>();
+
+            foreach (var basket in basketpositons)
+            {
+                BasketPositionResponseDTO basketResponse = new BasketPositionResponseDTO();
+                basketResponse.Id = basket.Id;
+                basketResponse.User = basket.User;
+                basketResponse.Product = basket.Product;
+                basketResponse.Amount = basket.Amount;
+                ret.Add(basketResponse);
+            }
+            return ret;
         }
     }
 }
