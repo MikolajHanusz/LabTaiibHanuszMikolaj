@@ -1,0 +1,10 @@
+.kafel{
+    width: 60px;
+    height: 100px;
+    display: inline-block;
+    margin: 20px;
+    background-color: #58ff8a;
+}
+:hover{
+    background-color: yellow;
+}
