@@ -29,6 +29,8 @@ namespace WebApplication1
 
             app.UseHttpsRedirection();
 
+            app.UseCors(opt => opt.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod().Build());
+
             app.UseAuthorization();
 
             app.MapControllers();

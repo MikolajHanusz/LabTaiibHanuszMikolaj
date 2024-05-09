@@ -10,13 +10,36 @@ namespace WebApplication1.Controllers
     public class ProductsController : ControllerBase
     {
         private IProductBLL productBLL;
-        ProductsController(IProductBLL productBLL) { this.productBLL = productBLL; }
+        public ProductsController(IProductBLL productBLL) { this.productBLL = productBLL; }
 
         [HttpPost]
-        ActionResult<ProductRequestDTO> AddProduct(ProductRequestDTO product)
+        public void PostProduct([FromBody] ProductRequestDTO productRequestDTO)
         {
-            var prod = productBLL.AddProduct(product);
-            return CreatedAtAction(nameof(AddProduct),prod);
+            this.productBLL.AddProduct(productRequestDTO);
+        }
+
+        [HttpPut("{id}")]
+        public void PutProduct(int id, [FromQuery] ProductRequestDTO productRequestDTO)
+        {
+            this.productBLL.UpdateProduct(productRequestDTO, id);
+        }
+        //[HttpPut("{id}")]
+        //[Route("put2/{id}")]
+        //public void ActivateProduct(int id, [FromQuery] ProductRequestDTO productRequestDTO)
+        //{
+        //    this.productBLL.UpdateProduct(productRequestDTO, id);
+        //}
+
+        [HttpGet]
+        public IEnumerable<ProductResponseDTO> GetProducts([FromQuery] ProductListProperties p)
+        {
+            return this.productBLL.GetProductList(p);
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            this.productBLL.DeleteProduct(id);
         }
     }
 }

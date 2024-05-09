@@ -52,12 +52,34 @@ namespace BLL_EF
 
         public List<ProductResponseDTO> GetProductList(ProductListProperties properties)
         {
-            throw new NotImplementedException();
+            List<ProductResponseDTO > productsList = new List<ProductResponseDTO>();
+            var products = WebShop.Products;
+            foreach (var product in products) 
+            { 
+                ProductResponseDTO productResponse = new ProductResponseDTO();
+                productResponse.Id = product.Id;
+                productResponse.Name = product.Name;
+                productResponse.Price = product.Price;
+                productResponse.Image = product.Image;
+                productResponse.IsActive = product.IsActive;
+                productResponse.BasketPositions = product.BasketPositions;
+                productResponse.OrderPositions = product.OrderPositions;
+
+                productsList.Add(productResponse);
+            }
+            return productsList;
         }
 
         public void UpdateProduct(ProductRequestDTO product, int id)
         {
-            throw new NotImplementedException();
+            Product p = (Product)WebShop.Products.Select(x => x.Id);
+            p.Name = product.Name;
+            p.Price = product.Price;
+            p.Image = product.Image;
+            p.IsActive = product.IsActive;
+            p.BasketPositions = product.BasketPositions;
+            p.OrderPositions = product.OrderPositions;
+            WebShop.SaveChanges();
         }
     }
 }
