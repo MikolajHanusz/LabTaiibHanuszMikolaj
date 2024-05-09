@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     public class BasketPositionsController : ControllerBase
     {
         private IBasketPositionBLL basketPositionBLL;
-        BasketPositionsController(IBasketPositionBLL basketPositionBLL) { this.basketPositionBLL = basketPositionBLL; }
+        public BasketPositionsController(IBasketPositionBLL basketPositionBLL) { this.basketPositionBLL = basketPositionBLL; }
 
         [HttpPost]
         public void PostProduct(int id, [FromBody] ProductResponseDTO productResponseDTO)

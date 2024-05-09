@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     public class ProductsController : ControllerBase
     {
         private IProductBLL productBLL;
-        ProductsController(IProductBLL productBLL) { this.productBLL = productBLL; }
+        public ProductsController(IProductBLL productBLL) { this.productBLL = productBLL; }
 
         [HttpPost]
         public void PostProduct([FromBody] ProductRequestDTO productRequestDTO)

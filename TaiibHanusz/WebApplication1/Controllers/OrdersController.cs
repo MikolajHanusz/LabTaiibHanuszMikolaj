@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     public class OrdersController : ControllerBase
     {
         private IOrderBLL orderBLL;
-        OrdersController(IOrderBLL orderBLL) { this.orderBLL = orderBLL; }
+        public OrdersController(IOrderBLL orderBLL) { this.orderBLL = orderBLL; }
 
         [HttpPost]
         public void PostProduct(int id,[FromBody] OrderRequestDTO orderRequestDTO)
