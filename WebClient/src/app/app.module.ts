@@ -14,7 +14,7 @@ import { BasketComponent } from './basket/basket.component';
     AppComponent,
     ProductsComponent,
     OrdersComponent,
-    BasketComponent
+    BasketComponent,
   ],
   imports: [
     BrowserModule,

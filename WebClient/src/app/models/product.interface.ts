@@ -10,3 +10,12 @@ export interface ProductResponseDTO {
     basketPositions: BasketPositionResponseDTO[];
     orderPositions: OrderPositionResponseDTO[];
 }
+
+export interface ProductRequestDTO {
+    name: string;
+    price: number;
+    image: string;
+    isActive: boolean;
+    basketPositions: BasketPositionResponseDTO[];
+    orderPositions: OrderPositionResponseDTO[];
+}
