@@ -1,6 +1,11 @@
 using BLL.Interfaces;
 using BLL_EF;
 using DataAccessLayer;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
 namespace WebApplication1
 {
     class Program
@@ -10,6 +15,23 @@ namespace WebApplication1
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(opt =>
+            {
+                opt.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "http://localhost:5000",
+                    ValidAudience = "http://localhost:5000",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("sadsadsadhytsfuysdgfuysgrygsduyfgwuegiuweehfuyhwsfuihbweyfhiwuehfiuwehfiuwehfiuhwefiuhwefiu"))
+                };
+            });
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -27,11 +49,16 @@ namespace WebApplication1
                 app.UseSwaggerUI();
             }
 
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+
             app.UseHttpsRedirection();
 
-            app.UseCors(opt => opt.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod().Build());
+            //app.UseCors(opt => opt.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod().Build());
 
-            app.UseAuthorization();
 
             app.MapControllers();
 
